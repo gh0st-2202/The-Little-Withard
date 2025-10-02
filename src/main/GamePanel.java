@@ -8,14 +8,14 @@ import java.awt.*;
 public class GamePanel extends JPanel implements Runnable{
 
     /* AJUSTES DE LA VENTANA */
-    final int originalTileSize = 16; /* 32x32 tile */
-    final int scale = 3;
+    final int originalTileSize = 160; /* 32x32 tile */
+    final int scale = 1;
 
-    public final int tileSize = originalTileSize * scale; /* 64x64 pixels */
-    final int maxScreenCol = 16;
-    final int maxScreenRow = 12;
-    final int screenWidth = tileSize * maxScreenCol; /* 1024 pixels */
-    final int screenHeight = tileSize * maxScreenRow; /* 576 pixels */
+    public final int tileSize = originalTileSize * scale; /* 160x160 pixels */
+    final int maxScreenCol = 12;
+    final int maxScreenRow = 6;
+    final int screenWidth = tileSize * maxScreenCol; /* 1920 pixels */
+    final int screenHeight = tileSize * maxScreenRow; /* 960 pixels */
 
     // FPS
     double FPS = 60;
@@ -27,7 +27,7 @@ public class GamePanel extends JPanel implements Runnable{
     // ESTABLECER POSICIÓN DEL JUGADOR PREDETERMINADA
     int playerX = 100;
     int playerY = 100;
-    int playerSpeed = 4;
+    int playerSpeed = 3;
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
