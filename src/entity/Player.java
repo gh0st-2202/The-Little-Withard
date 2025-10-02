@@ -22,46 +22,45 @@ public class Player extends Entity {
     public void setDefaultValues() {
         x = 100;
         y = 100;
-        speed = 4;
+        speed = 3;
         direction = "down";
     }
 
     public void getPlayerImage(){
 
         try{
-            down1 = ImageIO.read(getClass().getResourceAsStream("/player/player_down_0.png"));
-            down2 = ImageIO.read(getClass().getResourceAsStream("/player/player_down_1.png"));
-            down3 = ImageIO.read(getClass().getResourceAsStream("/player/player_down_2.png"));
-            down4 = ImageIO.read(getClass().getResourceAsStream("/player/player_down_3.png"));
-            down5 = ImageIO.read(getClass().getResourceAsStream("/player/player_down_4.png"));
-            down6 = ImageIO.read(getClass().getResourceAsStream("/player/player_down_5.png"));
-            down7 = ImageIO.read(getClass().getResourceAsStream("/player/player_down_6.png"));
-            down8 = ImageIO.read(getClass().getResourceAsStream("/player/player_down_7.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("/player/player_right_0.png"));
-            right2 = ImageIO.read(getClass().getResourceAsStream("/player/player_right_1.png"));
-            right3 = ImageIO.read(getClass().getResourceAsStream("/player/player_right_2.png"));
-            right4 = ImageIO.read(getClass().getResourceAsStream("/player/player_right_3.png"));
-            right5 = ImageIO.read(getClass().getResourceAsStream("/player/player_right_4.png"));
-            right6 = ImageIO.read(getClass().getResourceAsStream("/player/player_right_5.png"));
-            right7 = ImageIO.read(getClass().getResourceAsStream("/player/player_right_6.png"));
-            right8 = ImageIO.read(getClass().getResourceAsStream("/player/player_right_7.png"));
-            left1 = ImageIO.read(getClass().getResourceAsStream("/player/player_left_0.png"));
-            left2 = ImageIO.read(getClass().getResourceAsStream("/player/player_left_1.png"));
-            left3 = ImageIO.read(getClass().getResourceAsStream("/player/player_left_2.png"));
-            left4 = ImageIO.read(getClass().getResourceAsStream("/player/player_left_3.png"));
-            left5 = ImageIO.read(getClass().getResourceAsStream("/player/player_left_4.png"));
-            left6 = ImageIO.read(getClass().getResourceAsStream("/player/player_left_5.png"));
-            left7 = ImageIO.read(getClass().getResourceAsStream("/player/player_left_6.png"));
-            left8 = ImageIO.read(getClass().getResourceAsStream("/player/player_left_7.png"));
-            up1 = ImageIO.read(getClass().getResourceAsStream("/player/player_up_0.png"));
-            up2 = ImageIO.read(getClass().getResourceAsStream("/player/player_up_1.png"));
-            up3 = ImageIO.read(getClass().getResourceAsStream("/player/player_up_2.png"));
-            up4 = ImageIO.read(getClass().getResourceAsStream("/player/player_up_3.png"));
-            up5 = ImageIO.read(getClass().getResourceAsStream("/player/player_up_4.png"));
-            up6 = ImageIO.read(getClass().getResourceAsStream("/player/player_up_5.png"));
-            up7 = ImageIO.read(getClass().getResourceAsStream("/player/player_up_6.png"));
-            up8 = ImageIO.read(getClass().getResourceAsStream("/player/player_up_7.png"));
-
+            down1 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/down/down_1.png"));
+            down2 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/down/down_2.png"));
+            down3 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/down/down_3.png"));
+            down4 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/down/down_4.png"));
+            down5 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/down/down_5.png"));
+            down6 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/down/down_6.png"));
+            down7 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/down/down_7.png"));
+            down8 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/down/down_8.png"));
+            left1 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/left/left_1.png"));
+            left2 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/left/left_2.png"));
+            left3 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/left/left_3.png"));
+            left4 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/left/left_4.png"));
+            left5 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/left/left_5.png"));
+            left6 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/left/left_6.png"));
+            left7 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/left/left_7.png"));
+            left8 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/left/left_8.png"));
+            right1 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/right/right_1.png"));
+            right2 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/right/right_2.png"));
+            right3 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/right/right_3.png"));
+            right4 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/right/right_4.png"));
+            right5 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/right/right_5.png"));
+            right6 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/right/right_6.png"));
+            right7 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/right/right_7.png"));
+            right8 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/right/right_8.png"));
+            up1 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/up/up_1.png"));
+            up2 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/up/up_2.png"));
+            up3 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/up/up_3.png"));
+            up4 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/up/up_4.png"));
+            up5 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/up/up_5.png"));
+            up6 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/up/up_6.png"));
+            up7 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/up/up_7.png"));
+            up8 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/up/up_8.png"));
 
 
         }catch(IOException e){
@@ -91,7 +90,7 @@ public class Player extends Entity {
 
             spriteCounter++;
 
-            if (spriteCounter > 3) {
+            if (spriteCounter > 4) {
                 if (spriteNum == 1) {
                     spriteNum ++;
                 } else if (spriteNum == 2) {
