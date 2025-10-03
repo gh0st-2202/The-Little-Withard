@@ -18,7 +18,7 @@ public class PlainManager {
         tile = new Tile[10];
         mapTileNum = new int[gp.maxWorldCor][gp.maxWorldRow];
         getTileImage();
-        loadMap("/maps/map02.txt");
+        loadMap("/maps/prueba.txt");
     }
 
     public void loadMap(String mapPath) {
