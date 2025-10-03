@@ -80,9 +80,9 @@ public class PlainManager {
             int screenY = worldY - gp.player.worldY + gp.player.screenY;
 
             if (worldX + gp.tileSize > gp.player.worldX - gp.player.screenX &&
-                    worldX - gp.tileSize < gp.player.worldX + gp.player.screenX &&
+                    worldX - 2*gp.tileSize < gp.player.worldX + gp.player.screenX &&
                     worldY + gp.tileSize > gp.player.worldY - gp.player.screenY &&
-                    worldY - gp.tileSize < gp.player.worldY + gp.player.screenY &&
+                    worldY - 2*gp.tileSize < gp.player.worldY + gp.player.screenY &&
                     worldY - 90 < gp.player.worldY) {
                 if (tileNum == 2) {
                     g2.drawImage(tile[tileNum].image, screenX-19, screenY-100, 104, 133, null);
@@ -110,9 +110,9 @@ public class PlainManager {
             int screenY = worldY - gp.player.worldY + gp.player.screenY;
 
             if (worldX + gp.tileSize > gp.player.worldX - gp.player.screenX &&
-                    worldX - gp.tileSize < gp.player.worldX + gp.player.screenX &&
+                    worldX - 2*gp.tileSize < gp.player.worldX + gp.player.screenX &&
                     worldY + gp.tileSize > gp.player.worldY - gp.player.screenY &&
-                    worldY - gp.tileSize < gp.player.worldY + gp.player.screenY &&
+                    worldY - 2*gp.tileSize < gp.player.worldY + gp.player.screenY &&
                     worldY - 90 > gp.player.worldY) {
                 if (tileNum == 2) {
                     g2.drawImage(tile[tileNum].image, screenX-19, screenY-100, 104, 133, null);
