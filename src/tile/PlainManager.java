@@ -57,7 +57,7 @@ public class PlainManager {
             tile[1].image = ImageIO.read(getClass().getResourceAsStream("/tiles/futbol_grass/1-2.png"));
 
             tile[2] = new Tile();
-            tile[2].image = ImageIO.read(getClass().getResourceAsStream("/plains/trees/tree2.png"));
+            tile[2].image = ImageIO.read(getClass().getResourceAsStream("/plains/trees/tree1.png"));
 
             tile[3] = new Tile();
             tile[3].image = ImageIO.read(getClass().getResourceAsStream("/tiles/ceramic/1-4.png"));

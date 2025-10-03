@@ -14,7 +14,7 @@ public class TileManager {
     int mapTileNum[][];
     public TileManager(GamePanel gp) {
         this.gp = gp;
-        tile = new Tile[10];
+        tile = new Tile[101];
         mapTileNum = new int[gp.maxWorldCor][gp.maxWorldRow];
         getTileImage();
         loadMap("/maps/map01.txt");
@@ -58,7 +58,70 @@ public class TileManager {
             tile[2].image = ImageIO.read(getClass().getResourceAsStream("/tiles/futbol_grass/1-3.png"));
 
             tile[3] = new Tile();
-            tile[3].image = ImageIO.read(getClass().getResourceAsStream("/tiles/ceramic/1-4.png"));
+            tile[3].image = ImageIO.read(getClass().getResourceAsStream("/tiles/ceramic/1-1.png"));
+
+            tile[4] = new Tile();
+            tile[4].image = ImageIO.read(getClass().getResourceAsStream("/tiles/ceramic/1-2.png"));
+
+            tile[5] = new Tile();
+            tile[5].image = ImageIO.read(getClass().getResourceAsStream("/tiles/ceramic/1-3.png"));
+
+            tile[6] = new Tile();
+            tile[6].image = ImageIO.read(getClass().getResourceAsStream("/tiles/ceramic/1-4.png"));
+
+            tile[7] = new Tile();
+            tile[7].image = ImageIO.read(getClass().getResourceAsStream("/tiles/ceramic/1-5.png"));
+
+            tile[8] = new Tile();
+            tile[8].image = ImageIO.read(getClass().getResourceAsStream("/tiles/ceramic/1-6.png"));
+
+            tile[9] = new Tile();
+            tile[9].image = ImageIO.read(getClass().getResourceAsStream("/tiles/ceramic/1-7.png"));
+
+            tile[10] = new Tile();
+            tile[10].image = ImageIO.read(getClass().getResourceAsStream("/tiles/ceramic/1-8.png"));
+
+            tile[11] = new Tile();
+            tile[11].image = ImageIO.read(getClass().getResourceAsStream("/tiles/wood/1-1.png"));
+
+            tile[12] = new Tile();
+            tile[12].image = ImageIO.read(getClass().getResourceAsStream("/tiles/wood/1-2.png"));
+
+            tile[13] = new Tile();
+            tile[13].image = ImageIO.read(getClass().getResourceAsStream("/tiles/wood/1-3.png"));
+
+            tile[14] = new Tile();
+            tile[14].image = ImageIO.read(getClass().getResourceAsStream("/tiles/wood/1-4.png"));
+
+            tile[15] = new Tile();
+            tile[15].image = ImageIO.read(getClass().getResourceAsStream("/tiles/wood/1-5.png"));
+
+            tile[16] = new Tile();
+            tile[16].image = ImageIO.read(getClass().getResourceAsStream("/tiles/wood/1-6.png"));
+
+            tile[17] = new Tile();
+            tile[17].image = ImageIO.read(getClass().getResourceAsStream("/tiles/wood/1-7.png"));
+
+            tile[18] = new Tile();
+            tile[18].image = ImageIO.read(getClass().getResourceAsStream("/tiles/wood/1-8.png"));
+
+            tile[19] = new Tile();
+            tile[19].image = ImageIO.read(getClass().getResourceAsStream("/tiles/dark_grass/1-1.png"));
+
+            tile[19] = new Tile();
+            tile[19].image = ImageIO.read(getClass().getResourceAsStream("/tiles/dark_grass/1-2.png"));
+
+            tile[20] = new Tile();
+            tile[20].image = ImageIO.read(getClass().getResourceAsStream("/tiles/dark_grass/1-3.png"));
+
+            tile[21] = new Tile();
+            tile[21].image = ImageIO.read(getClass().getResourceAsStream("/tiles/ice/1-1.png"));
+
+            tile[22] = new Tile();
+            tile[22].image = ImageIO.read(getClass().getResourceAsStream("/tiles/ice/1-2.png"));
+
+            tile[23] = new Tile();
+            tile[23].image = ImageIO.read(getClass().getResourceAsStream("/tiles/ice/1-3.png"));
 
         } catch(Exception e){
             e.printStackTrace();
