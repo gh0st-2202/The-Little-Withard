@@ -21,8 +21,8 @@ public class GamePanel extends JPanel implements Runnable{
     public final int screenHeight = tileSize * maxScreenRow; /* 960 pixels */
 
     // AJUSTES DEL MUNDO
-    public final int maxWorldCor = 500;
-    public final int maxWorldRow = 500;
+    public final int maxWorldCor = 6;
+    public final int maxWorldRow = 5;
     public final int worldWidth = maxWorldCor * 46;
     public final int worldHeight = maxWorldRow * 36;
 
@@ -33,6 +33,7 @@ public class GamePanel extends JPanel implements Runnable{
     PlainManager pM = new PlainManager(this);
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
+    public CollisionChecker cChecker = new CollisionChecker(this);
     public Player player = new Player(this, keyH);
 
     public GamePanel() {
