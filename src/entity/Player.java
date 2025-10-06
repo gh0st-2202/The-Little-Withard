@@ -152,7 +152,7 @@ public class Player extends Entity {
     }
 
     /**
-     * Este metodo es el encargado de dibujar la información actualizada sobre el jugador
+     * Este metodo es el encargado de dibujar la información actualizada sobre el jugadora
      * Es llamado en main.GamePanel.update() para ser actualizado al ritmo del reloj del juego
      * @param g2
      */
