@@ -13,6 +13,10 @@ public class PlainManager {
     public Tile[] tile;
     public int mapTileNum[][];
 
+    /**
+     * Este metodo establece los valores para detectar y dibujar los obstaculos del mapa
+     * @param gp Llama a GamePanel para enviarle la información del mapa
+     */
     public PlainManager(GamePanel gp) {
         this.gp = gp;
         tile = new Tile[100];
@@ -21,6 +25,10 @@ public class PlainManager {
         loadMap("/maps/map02.txt");
     }
 
+    /**
+     * Este metodo se encarga de leer el mapa completo
+     * @param mapPath La ruta hasta el archivo del mapa
+     */
     public void loadMap(String mapPath) {
         try {
             InputStream is = getClass().getResourceAsStream(mapPath);
@@ -48,6 +56,9 @@ public class PlainManager {
         }
     }
 
+    /**
+     * Este metodo es un diccionario, encargado de traducir el mapa a imagenes
+     */
     public void getTileImage() {
         try {
             tile[0] = new Tile();
@@ -84,6 +95,11 @@ public class PlainManager {
         }
     }
 
+    /**
+     * Este metodo es el encargado de dibujar los objetos por debajo del jugador
+     * La finalidad de este metodo es conseguir un efecto de 3D
+     * @param g2 Llama a la clase Graphics2D de Java
+     */
     public void drawBeforePlayer(Graphics2D g2) {
 
         int worldCol = 0;
@@ -117,6 +133,11 @@ public class PlainManager {
         }
     }
 
+    /**
+     * Este metodo es el encargado de dibujar los objeto por encima del jugador
+     * La finalidad de este metodo es conseguir un efecto de 3D
+     * @param g2 Llama a la clase Graphics2D de Java
+     */
     public void drawAfterPlayer(Graphics2D g2) {
 
         int worldCol = 0;

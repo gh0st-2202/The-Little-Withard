@@ -6,7 +6,6 @@ import main.KeyHandler;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
 public class Player extends Entity {
@@ -16,6 +15,11 @@ public class Player extends Entity {
     public final int screenX;
     public final int screenY;
 
+    /**
+     * Este metodo es el encargado de centrar al jugador y crear su hitbox
+     * @param gp Llama a GamePanel
+     * @param keyH La tecla que se pulsa
+     */
     public Player(GamePanel gp, KeyHandler keyH) {
         this.gp = gp;
         this.keyH = keyH;
@@ -23,12 +27,15 @@ public class Player extends Entity {
         screenX = gp.screenWidth / 2 - 80;
         screenY = gp.screenHeight / 2 - 80;
 
-        solidArea = new Rectangle(57, 78, 36, 30);
+        solidArea = new Rectangle(57, 80, 36, 36);
 
         setDefaultValues();
         getPlayerImage();
     }
 
+    /**
+     * Este metodo establece los valores predeterminados del jugador
+     */
     public void setDefaultValues() {
         worldX = 10;
         worldY = 10;
@@ -36,6 +43,9 @@ public class Player extends Entity {
         direction = "down";
     }
 
+    /**
+     * Este metodo es el encargado de cargar todas las texturas del jugador
+     */
     public void getPlayerImage(){
 
         try{
@@ -79,6 +89,10 @@ public class Player extends Entity {
 
     }
 
+    /**
+     * Este metodo es el encargado de actualizar los datos del jugador
+     * Es llamado en main.GamePanel.update() para ser actualizado al ritmo del reloj del juego
+     */
     public void update() {
         if(keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed) {
             if (keyH.upPressed) {
@@ -137,6 +151,11 @@ public class Player extends Entity {
         }
     }
 
+    /**
+     * Este metodo es el encargado de dibujar la información actualizada sobre el personaje
+     * Es llamado en main.GamePanel.update() para ser actualizado al ritmo del reloj del juego
+     * @param g2
+     */
     public void draw(Graphics g2){
         BufferedImage image = null;
         switch (direction){

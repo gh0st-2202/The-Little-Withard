@@ -12,6 +12,11 @@ public class TileManager {
     GamePanel gp;
     Tile[] tile;
     int mapTileNum[][];
+
+    /**
+     * Este metodo establece los valores para detectar y dibujar el suelo del mapa
+     * @param gp Llama a GamePanel para enviarle la información del mapa
+     */
     public TileManager(GamePanel gp) {
         this.gp = gp;
         tile = new Tile[101];
@@ -20,6 +25,10 @@ public class TileManager {
         loadMap("/maps/map01.txt");
     }
 
+    /**
+     * Este metodo se encarga de leer el mapa completo
+     * @param mapPath La ruta hasta el archivo del mapa
+     */
     public void loadMap(String mapPath){
         try{
             InputStream is = getClass().getResourceAsStream(mapPath);
@@ -46,6 +55,9 @@ public class TileManager {
         }catch(Exception e){}
     }
 
+    /**
+     * Este metodo es un diccionario, encargado de traducir el mapa a imagenes
+     */
     public void getTileImage() {
         try{
             tile[0] = new Tile();
@@ -127,6 +139,11 @@ public class TileManager {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Este metodo es el encargado de dibujar el suelo del mapa
+     * @param g2 Llama a la clase Graphics2D de Java
+     */
     public void draw(Graphics2D g2) {
 
         int worldCol = 0;

@@ -9,6 +9,12 @@ public class CollisionChecker {
         this.gp = gp;
     }
 
+    /**
+     * Esta funcion detecta si existe una colision entre un objeto del mapa y una entidad
+     * Además detecta el lado de la colisión (arriba, abajo, izquierda, derecha)
+     * @param entity La entidad que se comprueba
+     */
+
     public void checkTile(Entity entity) {
 
         int entityLeftWorldX = entity.worldX + entity.solidArea.x;
@@ -29,7 +35,6 @@ public class CollisionChecker {
                 tileNum1 = gp.pM.mapTileNum[entityLeftCol][entityTopRow];
                 tileNum2 = gp.pM.mapTileNum[entityRightCol][entityTopRow];
                 if(gp.pM.tile[tileNum1].collision || gp.pM.tile[tileNum2].collision) {
-                    System.out.println("COLISION ARRIBA: \nEsquina izquierda: " + entityLeftCol + " " + entityTopRow + "\n Esquina derecha: " + entityRightCol + " " + entityTopRow);
                     entity.collisionOn = true;
                 }
                 break;
@@ -38,7 +43,6 @@ public class CollisionChecker {
                 tileNum1 = gp.pM.mapTileNum[entityLeftCol][entityBottomRow];
                 tileNum2 = gp.pM.mapTileNum[entityRightCol][entityBottomRow];
                 if(gp.pM.tile[tileNum1].collision || gp.pM.tile[tileNum2].collision) {
-                    System.out.println("COLISION ABAJO: \nEsquina izquierda: " + entityLeftCol + " " + entityBottomRow + "\n Esquina derecha: " + entityRightCol + " " + entityBottomRow);
                     entity.collisionOn = true;
                 }
                 break;
@@ -47,7 +51,6 @@ public class CollisionChecker {
                 tileNum1 = gp.pM.mapTileNum[entityLeftCol][entityTopRow];
                 tileNum2 = gp.pM.mapTileNum[entityLeftCol][entityBottomRow];
                 if(gp.pM.tile[tileNum1].collision || gp.pM.tile[tileNum2].collision) {
-                    System.out.println("COLISION IZQUIERDA: \nEsquina arriba: " + entityLeftCol + " " + entityTopRow + "\n Esquina abajo: " + entityLeftCol + " " + entityBottomRow);
                     entity.collisionOn = true;
                 }
                 break;
@@ -56,7 +59,6 @@ public class CollisionChecker {
                 tileNum1 = gp.pM.mapTileNum[entityRightCol][entityTopRow];
                 tileNum2 = gp.pM.mapTileNum[entityRightCol][entityBottomRow];
                 if(gp.pM.tile[tileNum1].collision || gp.pM.tile[tileNum2].collision) {
-                    System.out.println("COLISION DERECHA: \nEsquina arriba: " + entityRightCol + " " + entityTopRow + "\n Esquina abajo: " + entityRightCol + " " + entityBottomRow);
                     entity.collisionOn = true;
                 }
                 break;

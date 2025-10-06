@@ -3,6 +3,11 @@ package main;
 import javax.swing.*;
 
 public class Main {
+    /**
+     * Metodo principal del juego
+     * Se establecen el nombre de ventana y se crea la ventana
+     * @param args
+     */
     public static void main(String[] args) {
 
         JFrame ventana = new JFrame();

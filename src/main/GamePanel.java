@@ -2,7 +2,6 @@ package main;
 
 import entity.Player;
 import tile.PlainManager;
-import tile.Tile;
 import tile.TileManager;
 
 import javax.swing.*;
@@ -11,7 +10,7 @@ import java.awt.*;
 public class GamePanel extends JPanel implements Runnable{
 
     /* AJUSTES DE LA PANTALLA */
-    final int originalTileSize = 160; /* 32x32 tile */
+    final int originalTileSize = 160; /* 160x160 tile */
     final int scale = 1;
 
     public final int tileSize = originalTileSize * scale; /* 160x160 pixels */
@@ -20,13 +19,13 @@ public class GamePanel extends JPanel implements Runnable{
     public final int screenWidth = tileSize * maxScreenCol; /* 1920 pixels */
     public final int screenHeight = tileSize * maxScreenRow; /* 960 pixels */
 
-    // AJUSTES DEL MUNDO
+    /* AJUSTES DEL MUNDO */
     public final int maxWorldCor = 6;
     public final int maxWorldRow = 5;
     public final int worldWidth = maxWorldCor * 46;
     public final int worldHeight = maxWorldRow * 36;
 
-    // FPS
+    /* FPS */
     double FPS = 60;
 
     TileManager tileM = new TileManager(this);
@@ -36,6 +35,9 @@ public class GamePanel extends JPanel implements Runnable{
     public CollisionChecker cChecker = new CollisionChecker(this);
     public Player player = new Player(this, keyH);
 
+    /**
+     * Este metodo establece las propiedades básicas de la ventana
+     */
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.black);
@@ -44,11 +46,21 @@ public class GamePanel extends JPanel implements Runnable{
         this.setFocusable(true);
     }
 
+
+    /**
+     * Este metodo inicia el proceso del juego (para tener tiempo)
+     */
     public void startGameThread(){
         gameThread = new Thread(this);
         gameThread.start();
     }
 
+    /**
+     * Este metodo establece el límite de FPS con el que trabajaremos
+     * ajustando las físicas a esta frecuencia de actualizado
+     * Tocar estos parámetros hará que el juego no funcione
+     * de la manera adecuada
+     */
     @Override
     public void run() {
         double drawInterval = 1000000000 / FPS;
@@ -76,9 +88,20 @@ public class GamePanel extends JPanel implements Runnable{
             }
         }
     }
+
+    /**
+     * Este metodo actualiza toda la información cuando es llamado
+     * (es llamado una vez en cada frame)
+     */
     public void update(){
         player.update();
     }
+
+    /**
+     * Este metodo muestra por pantalla la información actualizada
+     * (es llamado una vez en cada frame)
+     * @param g Llama a la clase Graphics (encargada de dibujar los pixeles)
+     */
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;

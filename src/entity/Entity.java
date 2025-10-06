@@ -3,6 +3,9 @@ package entity;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
+/**
+ * Esta clase establece los requisitos obligatorios para poder crear una entidad
+ */
 public class Entity {
     public int worldX, worldY;
     public int speed;
