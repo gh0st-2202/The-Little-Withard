@@ -111,18 +111,15 @@ public class PlainManager {
             int worldY = worldRow * 36;
             int screenX = worldX - gp.player.worldX + gp.player.screenX;
             int screenY = worldY - gp.player.worldY + gp.player.screenY;
-            int[] margenScreenX = {0, 13, 19, 33, -17, 0, -3, -17, -3};
-            int[] margenScreenY = {0, 78, 100, 105, -10, 0, -10, -7, -1};
             int[] resolucionX = {0, 73, 104, 110, 16, 24, 22, 22, 37};
             int[] resolucionY = {0, 107, 133, 134, 16, 24, 22, 34, 37};
-
 
             if (worldX + gp.tileSize > gp.player.worldX - gp.player.screenX &&
                     worldX - 2*gp.tileSize < gp.player.worldX + gp.player.screenX &&
                     worldY + gp.tileSize > gp.player.worldY - gp.player.screenY &&
                     worldY - 2*gp.tileSize < gp.player.worldY + gp.player.screenY &&
                     worldY - 90 < gp.player.worldY && tileNum != 0) {
-                    g2.drawImage(tile[tileNum].image, screenX-margenScreenX[tileNum], screenY-margenScreenY[tileNum], resolucionX[tileNum], resolucionY[tileNum], null);
+                g2.drawImage(tile[tileNum].image, screenX-((resolucionX[tileNum]-46)/2), screenY-((resolucionY[tileNum]-36)), resolucionX[tileNum], resolucionY[tileNum], null);
             }
             worldCol++;
 
@@ -149,8 +146,6 @@ public class PlainManager {
             int worldY = worldRow * 36;
             int screenX = worldX - gp.player.worldX + gp.player.screenX;
             int screenY = worldY - gp.player.worldY + gp.player.screenY;
-            int[] margenScreenX = {0, 13, 19, 33, -17, 0, -3, -17, -3};
-            int[] margenScreenY = {0, 78, 100, 105, -10, 0, -10, -7, -1};
             int[] resolucionX = {0, 73, 104, 110, 16, 24, 22, 22, 37};
             int[] resolucionY = {0, 107, 133, 134, 16, 24, 22, 34, 37};
 
@@ -159,7 +154,7 @@ public class PlainManager {
                     worldY + gp.tileSize > gp.player.worldY - gp.player.screenY &&
                     worldY - 2*gp.tileSize < gp.player.worldY + gp.player.screenY &&
                     worldY - 90 >= gp.player.worldY && tileNum != 0) {
-                g2.drawImage(tile[tileNum].image, screenX-margenScreenX[tileNum], screenY-margenScreenY[tileNum], resolucionX[tileNum], resolucionY[tileNum], null);
+                g2.drawImage(tile[tileNum].image, screenX-((resolucionX[tileNum]-46)/2), screenY-((resolucionY[tileNum]-36)), resolucionX[tileNum], resolucionY[tileNum], null);
 
             }
             worldCol++;
