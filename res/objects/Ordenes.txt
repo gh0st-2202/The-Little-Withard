@@ -1,0 +1,7 @@
+woodChest
+ironChest
+electricChest
+magicChest
+goldChest
+largeChest
+ultimateChest

@@ -81,6 +81,38 @@ public class Player extends Entity {
             up6 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/up/up_6.png"));
             up7 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/up/up_7.png"));
             up8 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/up/up_8.png"));
+            upLeft1 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/upleft/upleft_1.png"));
+            upLeft2 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/upleft/upleft_2.png"));
+            upLeft3 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/upleft/upleft_3.png"));
+            upLeft4 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/upleft/upleft_4.png"));
+            upLeft5 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/upleft/upleft_5.png"));
+            upLeft6 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/upleft/upleft_6.png"));
+            upLeft7 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/upleft/upleft_7.png"));
+            upLeft8 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/upleft/upleft_8.png"));
+            upRight1 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/upright/upright_1.png"));
+            upRight2 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/upright/upright_2.png"));
+            upRight3 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/upright/upright_3.png"));
+            upRight4 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/upright/upright_4.png"));
+            upRight5 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/upright/upright_5.png"));
+            upRight6 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/upright/upright_6.png"));
+            upRight7 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/upright/upright_7.png"));
+            upRight8 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/upright/upright_8.png"));
+            downLeft1 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/downleft/downleft_1.png"));
+            downLeft2 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/downleft/downleft_2.png"));
+            downLeft3 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/downleft/downleft_3.png"));
+            downLeft4 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/downleft/downleft_4.png"));
+            downLeft5 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/downleft/downleft_5.png"));
+            downLeft6 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/downleft/downleft_6.png"));
+            downLeft7 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/downleft/downleft_7.png"));
+            downLeft8 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/downleft/downleft_8.png"));
+            downRight1 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/downright/downright_1.png"));
+            downRight2 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/downright/downright_2.png"));
+            downRight3 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/downright/downright_3.png"));
+            downRight4 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/downright/downright_4.png"));
+            downRight5 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/downright/downright_5.png"));
+            downRight6 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/downright/downright_6.png"));
+            downRight7 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/downright/downright_7.png"));
+            downRight8 = ImageIO.read(getClass().getResourceAsStream("/player/movimiento/downright/downright_8.png"));
 
 
         }catch(IOException e){
@@ -95,6 +127,14 @@ public class Player extends Entity {
      */
     public void update() {
         if(keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed) {
+            if (keyH.upPressed && keyH.downPressed) {
+                keyH.upPressed = false;
+                keyH.downPressed = false;
+            }
+            if (keyH.leftPressed && keyH.rightPressed) {
+                keyH.leftPressed = false;
+                keyH.rightPressed = false;
+            }
             if (keyH.upPressed) {
                 direction = "up";
             }
@@ -107,6 +147,18 @@ public class Player extends Entity {
             if (keyH.rightPressed) {
                 direction = "right";
             }
+            if (keyH.upPressed && keyH.leftPressed) {
+                direction = "up-left";
+            }
+            if (keyH.upPressed && keyH.rightPressed) {
+                direction = "up-right";
+            }
+            if (keyH.downPressed && keyH.leftPressed) {
+                direction = "down-left";
+            }
+            if (keyH.downPressed && keyH.rightPressed) {
+                direction = "down-right";
+            }
 
             collisionOn = false;
             gp.cChecker.checkTile(this);
@@ -114,16 +166,32 @@ public class Player extends Entity {
             if(!collisionOn) {
                 switch (direction) {
                     case "up":
-                        worldY -= speed + 1;
+                        worldY -= speed;
                         break;
                     case "down":
-                        worldY += speed + 1;
+                        worldY += speed;
                         break;
                     case "left":
-                        worldX -= speed + 1;
+                        worldX -= speed;
                         break;
                     case "right":
-                        worldX += speed + 1;
+                        worldX += speed;
+                        break;
+                    case "up-left":
+                        worldY -= (int) Math.sqrt(speed + 1);
+                        worldX -= (int) Math.sqrt(speed + 1);
+                        break;
+                    case "up-right":
+                        worldY -= (int) Math.sqrt(speed + 1);
+                        worldX += (int) Math.sqrt(speed + 1);
+                        break;
+                    case "down-left":
+                        worldY += (int) Math.sqrt(speed + 1);
+                        worldX -= (int) Math.sqrt(speed + 1);
+                        break;
+                    case "down-right":
+                        worldY += (int) Math.sqrt(speed + 1);
+                        worldX += (int) Math.sqrt(speed + 1);
                         break;
                 }
             }
@@ -198,6 +266,46 @@ public class Player extends Entity {
                 if(spriteNum == 6){image = right6;}
                 if(spriteNum == 7){image = right7;}
                 if(spriteNum == 8){image = right8;}
+                break;
+            case "up-left":
+                if(spriteNum == 1){image = upLeft1;}
+                if(spriteNum == 2){image = upLeft2;}
+                if(spriteNum == 3){image = upLeft3;}
+                if(spriteNum == 4){image = upLeft4;}
+                if(spriteNum == 5){image = upLeft5;}
+                if(spriteNum == 6){image = upLeft6;}
+                if(spriteNum == 7){image = upLeft7;}
+                if(spriteNum == 8){image = upLeft8;}
+                break;
+            case "up-right":
+                if(spriteNum == 1){image = upRight1;}
+                if(spriteNum == 2){image = upRight2;}
+                if(spriteNum == 3){image = upRight3;}
+                if(spriteNum == 4){image = upRight4;}
+                if(spriteNum == 5){image = upRight5;}
+                if(spriteNum == 6){image = upRight6;}
+                if(spriteNum == 7){image = upRight7;}
+                if(spriteNum == 8){image = upRight8;}
+                break;
+            case "down-left":
+                if(spriteNum == 1){image = downLeft1;}
+                if(spriteNum == 2){image = downLeft2;}
+                if(spriteNum == 3){image = downLeft3;}
+                if(spriteNum == 4){image = downLeft4;}
+                if(spriteNum == 5){image = downLeft5;}
+                if(spriteNum == 6){image = downLeft6;}
+                if(spriteNum == 7){image = downLeft7;}
+                if(spriteNum == 8){image = downLeft8;}
+                break;
+            case "down-right":
+                if(spriteNum == 1){image = downRight1;}
+                if(spriteNum == 2){image = downRight2;}
+                if(spriteNum == 3){image = downRight3;}
+                if(spriteNum == 4){image = downRight4;}
+                if(spriteNum == 5){image = downRight5;}
+                if(spriteNum == 6){image = downRight6;}
+                if(spriteNum == 7){image = downRight7;}
+                if(spriteNum == 8){image = downRight8;}
                 break;
         }
         g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);

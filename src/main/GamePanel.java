@@ -1,6 +1,7 @@
 package main;
 
 import entity.Player;
+import object.SuperObject;
 import tile.PlainManager;
 import tile.TileManager;
 
@@ -33,7 +34,9 @@ public class GamePanel extends JPanel implements Runnable{
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
     public CollisionChecker cChecker = new CollisionChecker(this);
+    public AssetSetter aSetter = new AssetSetter(this);
     public Player player = new Player(this, keyH);
+    public SuperObject obj[] = new SuperObject[10];
 
     /**
      * Este metodo establece las propiedades básicas de la ventana
@@ -46,6 +49,14 @@ public class GamePanel extends JPanel implements Runnable{
         this.setFocusable(true);
     }
 
+    /**
+     * Este metodo permite hacer cosas en el juego ANTES de que se inicie
+     * Es llamado en el main
+     */
+    public void setupGame(){
+        aSetter.setObject();
+
+    }
 
     /**
      * Este metodo inicia el proceso del juego (para tener tiempo)
@@ -105,9 +116,24 @@ public class GamePanel extends JPanel implements Runnable{
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
+
+        // SUELO
         tileM.draw(g2);
+
+        // ESTRUCTURAS DETRÁS DEL JUGADOR
         pM.drawBeforePlayer(g2);
+
+        // OBJETOS
+        for (int i = 0; i < obj.length; i++) {
+            if(obj[i] != null) {
+                obj[i].draw(g2, this);
+            }
+        }
+
+        // JUGADOR
         player.draw(g2);
+
+        // ESTRUCTURAS DELANTE DEL JUGADOR
         pM.drawAfterPlayer(g2);
         g2.dispose();
     }

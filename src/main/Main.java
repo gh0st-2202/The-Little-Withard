@@ -23,6 +23,8 @@ public class Main {
         ventana.setLocationRelativeTo(null);
         ventana.setVisible(true);
 
+        gamePanel.setupGame();
+
         gamePanel.startGameThread();
     }
 }
