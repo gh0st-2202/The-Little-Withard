@@ -15,6 +15,8 @@ public class Player extends Entity {
     public final int screenX;
     public final int screenY;
 
+    long numberCoins = 0;
+
     /**
      * Este metodo es el encargado de centrar al jugador y crear su hitbox
      * @param gp Llama a GamePanel
@@ -28,7 +30,8 @@ public class Player extends Entity {
         screenY = gp.screenHeight / 2 - 80;
 
         solidArea = new Rectangle(57, 80, 36, 36);
-
+        solidAreaDefaultX = 57;
+        solidAreaDefaultY = 80;
         setDefaultValues();
         getPlayerImage();
     }
@@ -160,8 +163,12 @@ public class Player extends Entity {
                 direction = "down-right";
             }
 
+            // Revisa si el jugador colisiona con algo
             collisionOn = false;
             gp.cChecker.checkTile(this);
+
+            int objIndex = gp.cChecker.ckeckObject(this, true);
+            pickUpItem(objIndex);
 
             if(!collisionOn) {
                 switch (direction) {
@@ -215,6 +222,23 @@ public class Player extends Entity {
                     spriteNum = 1;
                 }
                 spriteCounter = 0;
+            }
+        }
+    }
+
+    /**
+     * Este metodo es el encargado de hacer que el jugador pueda interactuar con los objetos del mapa
+     * @param i El identificador del objeto
+     */
+    public void pickUpItem(int i){
+        if(i != 999){
+            String objectName = gp.obj[i].name;
+            switch (objectName) {
+                case "Coin":
+                    numberCoins++;
+                    System.out.println("Monedas: " + numberCoins);
+                    gp.obj[i] = null;
+                    break;
             }
         }
     }
