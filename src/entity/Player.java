@@ -205,7 +205,7 @@ public class Player extends Entity {
 
             spriteCounter++;
 
-            if (spriteCounter > 4) {
+            if (spriteCounter > 6) {
                 if (spriteNum == 1) {
                     spriteNum ++;
                 } else if (spriteNum == 2) {
@@ -235,6 +235,7 @@ public class Player extends Entity {
             String objectName = gp.obj[i].name;
             switch (objectName) {
                 case "Coin":
+                    gp.playSE(1);
                     numberCoins++;
                     System.out.println("Monedas: " + numberCoins);
                     gp.obj[i] = null;
