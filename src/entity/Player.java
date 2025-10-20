@@ -40,9 +40,9 @@ public class Player extends Entity {
      * Este metodo establece los valores predeterminados del jugador
      */
     public void setDefaultValues() {
-        worldX = 10;
-        worldY = 10;
-        speed = 3;
+        worldX = 115*46;
+        worldY = 127*36;
+        speed = 4;
         direction = "down";
     }
 

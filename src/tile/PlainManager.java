@@ -22,7 +22,7 @@ public class PlainManager {
         tile = new Tile[100];
         mapTileNum = new int[gp.maxWorldCor][gp.maxWorldRow];
         getTileImage();
-        loadMap("/maps/map02.txt");
+        loadMap("/maps/map03.txt");
     }
 
     /**
@@ -62,6 +62,7 @@ public class PlainManager {
     public void getTileImage() {
         try {
             tile[0] = new Tile();
+            tile[0].collision = true;
 
             tile[1] = new Tile();
             tile[1].image = ImageIO.read(getClass().getResourceAsStream("/plains/trees/tree1.png"));
